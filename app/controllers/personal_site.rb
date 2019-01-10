@@ -5,6 +5,7 @@ class PersonalSite
     case env["PATH_INFO"]
     when '/' then index
     when '/about' then about
+    when '/main.css' then css
     else
       error
     end
@@ -27,4 +28,11 @@ class PersonalSite
     # Recall, this array includes the HTTP response status code, HTTP response headers & HTTP body
   end
 
+  def self.css
+    render_static('main.css')
+  end
+
+  def self.render_static(asset)
+    [200, {'Content-Type' => 'test/html'}, [File.read("./public/#{asset}")]]
+  end
 end
