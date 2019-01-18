@@ -1,3 +1,4 @@
+#https://warm-fortress-64019.herokuapp.com/
 require 'rack'
 
 class PersonalSite
@@ -6,6 +7,7 @@ class PersonalSite
     when '/' then index
     when '/about' then about
     when '/main.css' then css
+    when '/blog' then blog
     else
       error
     end
